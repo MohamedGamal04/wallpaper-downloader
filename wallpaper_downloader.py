@@ -36,7 +36,7 @@ while True:
         continue
     print("Creating a wallpaper folder...")
     try:
-        os.mkdir("./wallpaper")
+        os.mkdir(os.path.dirname(os.path.realpath(__file__))+"\\wallpaper")
         print("done! the program will continue...")
     except Exception:
         print("folder already exist the program will continue...")
@@ -51,13 +51,13 @@ while True:
         img = requests.get(BigImg).content
         WallpaperName = BigImg[41:-4]
         try:
-            with open(f"./wallpaper/wallpaper-{WallpaperName}.jpg", "r") as f:
+            with open(fos.path.dirname(os.path.realpath(__file__))+"\\wallpaper\\wallpaper-{WallpaperName}.jpg", "r") as f:
                 f.read(img)
         except FileNotFoundError:
             pass
         except TypeError:
             print("Wallpaper already downloaded...\n")
             continue
-        with open(f"./wallpaper/wallpaper-{WallpaperName}.jpg", "wb") as f:
+        with open(os.path.dirname(os.path.realpath(__file__))+f"\\wallpaper\\wallpaper-{WallpaperName}.jpg", "wb") as f:
             f.write(img)
-        print(f"wallpaper-{WallpaperName}.jpg completed...\n")
+        print(os.path.dirname(os.path.realpath(__file__))+f"wallpaper-{WallpaperName}.jpg completed...\n")
