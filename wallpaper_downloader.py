@@ -51,7 +51,7 @@ while True:
         img = requests.get(BigImg).content
         WallpaperName = BigImg[41:-4]
         try:
-            with open(fos.path.dirname(os.path.realpath(__file__))+"\\wallpaper\\wallpaper-{WallpaperName}.jpg", "r") as f:
+            with open(os.path.dirname(os.path.realpath(__file__))+"\\wallpaper\\wallpaper-{WallpaperName}.jpg", "r") as f:
                 f.read(img)
         except FileNotFoundError:
             pass
